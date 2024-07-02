@@ -29,7 +29,6 @@ list_of_files = [
     "app.py",
     "Dockerfile",
     "research/trials.ipynb",
-    "templates/index.html",
     "test.py"
 
 
