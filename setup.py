@@ -21,19 +21,19 @@ def get_requirements(file_path:str)->List[str]:
 
     return requirements
 
-__version__ = "0.0.0"
+__version__ = "0.0.1"
 
 REPO_NAME = "DataScience_Project"
 AUTHOR_USER_NAME = "Som-III"
-SRC_REPO = "mlProject"
-AUTHOR_EMAIL = "entbappy73@gmail.com"
+SRC_REPO = "DataScience_Project"
+AUTHOR_EMAIL = "sommoroliyapp@gmail.com"
 
 setup(
     name=SRC_REPO,
     version=__version__,
     author=AUTHOR_USER_NAME,
     author_email=AUTHOR_EMAIL,
-    description="A small python package for ml app",
+    description="A small api for data science application",
     long_description=long_description,
     long_description_content="text/markdown",
     url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
