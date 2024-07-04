@@ -1,14 +1,14 @@
 import os
 import yaml
-from logger import logger
+from src.DataSc_project.logger import logger
 import json
 import joblib
 from pathlib import Path
-from typing import Dict,Any
+from src.DataSc_project.exceptions import CustomException
+import sys
 
 
-
-def read_yaml(path_to_yaml: Path) -> Dict[str:Any]:
+def read_yaml(path_to_yaml: Path) -> dict:
     """reads yaml file and returns
 
     Args:
@@ -19,19 +19,18 @@ def read_yaml(path_to_yaml: Path) -> Dict[str:Any]:
         Exception: For other exceptions.
 
     Returns:
-        Dict[str, Any]: Content of the YAML file.
+        dict: dictonary of yaml.
     """
     try:
-        with open(path_to_yaml) as yaml_file:
+        with open(path_to_yaml, 'r') as yaml_file:
             content = yaml.safe_load(yaml_file)
-            if content is None:
-                raise ValueError("YAML file is empty")
-            logger.info(f"YAML file: {path_to_yaml} loaded successfully")
+            if not content:
+                raise ValueError("YAML file is empty.")
+            logger.info(f"test YAML file: {path_to_yaml} loaded successfully")
             return content
-    except ValueError as ve:
-        raise ve        
     except Exception as e:
-        raise e
+        logger.info(f"Exception: {e}")
+        raise CustomException(e, sys)   
 
 
 
