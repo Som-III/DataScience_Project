@@ -8,7 +8,9 @@ from src.DataSc_project.utils.helpers import read_yaml
     
 
 if __name__ == "__main__":
-
-        config = read_yaml(CONFIG_FILE_PATH)
-        print(config['data_ingestion']['root_dir'])
+        try:
+          config = read_yaml(CONFIG_FILE_PATH)
+        except Exception as e:
+                raise CustomException(e,sys) from e
+        
         

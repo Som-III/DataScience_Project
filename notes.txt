@@ -1,2 +1,4 @@
 utils/helpers{return of load_json(path: Path) -> dict: instead of Confogbox
 also same foor read_yaml}
+
+configuration of entities
