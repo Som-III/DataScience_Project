@@ -19,14 +19,17 @@ class DataIngestion:
         self.user = os.getenv("user")
         self.password = os.getenv("password")
         self.db = os.getenv("db")
-        self.port = os.getenv("port")
         
     def connect_db(self) -> pymysql.connections.Connection:
         
         logger.info("Connecting to database")
         try:
-            database_uri = f"mysql+pymysql://{self.user}:{self.password}@{self.host}:{self.port}/{self.db}"
-            mydb = create_engine(database_uri)
+            mydb = pymysql.connect(
+                host=self.host,
+                user=self.user,
+                password=self.password,
+                db=self.db
+            )
             logger.info(f"connection established:{type(mydb)} ")
             return mydb
          
