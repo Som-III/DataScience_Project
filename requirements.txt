@@ -12,5 +12,6 @@ tqdm
 dvc
 python-dotenv
 python-box
+SQLAlchemy
 pymysql
 #-e .

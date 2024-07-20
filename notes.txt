@@ -5,3 +5,9 @@ configuration of entities
 
 check if the config parts are read as str or dict or Any to ensure in configuration.py to ensure df.to_csv(self.config['data_ingestion']['local_data_file'])
 this works or i would have to use os.path in configuration.py input of read_yaml
+
+i managed read_yaml to ---> exporting in configuration.py making sure dataclass matches
+now in data_ingestion
+ once dataclass exported things change completly in self 
+ as in configuration.py type of config ---> (variable) config: Dict[str, Any]
+ but in ingestion type of config -----> (variable) config: DataIngestionConfig due to self being-----> (parameter) self: Self@DataIngestion

@@ -29,7 +29,7 @@ def read_yaml(path_to_yaml: Path) -> Dict[str, Any]:
             content = yaml.safe_load(yaml_file)
             if not content:
                 raise ValueError("YAML file is empty.")
-            logger.info(f"ingestion YAML file: {path_to_yaml} loaded successfully")
+            logger.info(f"YAML file: {path_to_yaml} loaded successfully")
             return content
     except Exception as e:
         logger.info(f"Exception: {e}")

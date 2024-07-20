@@ -5,6 +5,8 @@ from src.DataSc_project.entity.config_entity import (DataIngestionConfig,
                                             DataTransformationConfig,
                                             ModelTrainerConfig,
                                             ModelEvaluationConfig)
+from typing import Dict, Any
+
 
 class ConfigurationManager:
     def __init__(
@@ -20,13 +22,13 @@ class ConfigurationManager:
 
     
     def get_data_ingestion_config(self) -> DataIngestionConfig:
-        config = self.config
+        config: Dict[str,Any] = self.config['data_ingestion']
 
-        create_directories([Path(config['data_ingestion']['root_dir'])])
+        create_directories([Path(config['root_dir'])])
 
         data_ingestion_config = DataIngestionConfig(
-            root_dir=Path(config['data_ingestion']['root_dir']),
-            local_data_file=Path(config['data_ingestion']['local_data_file'])
+            root_dir=Path(config['root_dir']),
+            local_data_file=Path(config['local_data_file'])
             
         )
 
