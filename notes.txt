@@ -2,3 +2,6 @@ utils/helpers{return of load_json(path: Path) -> dict: instead of Confogbox
 also same foor read_yaml}
 
 configuration of entities
+
+check if the config parts are read as str or dict or Any to ensure in configuration.py to ensure df.to_csv(self.config['data_ingestion']['local_data_file'])
+this works or i would have to use os.path in configuration.py input of read_yaml

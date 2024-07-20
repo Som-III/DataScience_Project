@@ -39,9 +39,9 @@ class DataIngestion:
         
     def load_data(self,mydb: pymysql.connections.Connection):
         try:
-            if not os.path.exists(self.config['data_ingestion']['local_data_file']):
-                df = pd.read_sql_query('select * from insurance_t',mydb)
-                df.to_csv(self.config['data_ingestion']['local_data_file'],index=False,header=True)
+            if not os.path.exists(Path(self.config['data_ingestion']['local_data_file'])):
+                df = pd.read_sql_query('SELECT * FROM insurance_t',mydb)
+                df.to_csv(Path(self.config['data_ingestion']['local_data_file']),index=False,header=True)
                 logger.info(f"csv file created at:{self.config['data_ingestion']['root_dir']} with name {self.config['data_ingestion']['local_data_file']} ")
                 
             else:

@@ -11,5 +11,6 @@ joblib
 tqdm
 dvc
 python-dotenv
+python-box
 pymysql
 #-e .

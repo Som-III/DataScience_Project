@@ -6,9 +6,12 @@ import joblib
 from pathlib import Path
 from src.DataSc_project.exceptions import CustomException
 import sys
+from typing import Dict, Any
 
 
-def read_yaml(path_to_yaml: Path) -> dict:
+
+
+def read_yaml(path_to_yaml: Path) -> Dict[str, Any]:
     """reads yaml file and returns
 
     Args:
@@ -26,7 +29,7 @@ def read_yaml(path_to_yaml: Path) -> dict:
             content = yaml.safe_load(yaml_file)
             if not content:
                 raise ValueError("YAML file is empty.")
-            logger.info(f"test YAML file: {path_to_yaml} loaded successfully")
+            logger.info(f"ingestion YAML file: {path_to_yaml} loaded successfully")
             return content
     except Exception as e:
         logger.info(f"Exception: {e}")
