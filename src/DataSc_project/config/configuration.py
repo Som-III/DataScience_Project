@@ -35,3 +35,19 @@ class ConfigurationManager:
         return data_ingestion_config
     
 
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        config: Dict[str,Any] = self.config['data_transformation']
+
+        create_directories([config.root_dir])
+        create_directories([config.train_test_split])
+
+        data_transformation_config = DataTransformationConfig(
+            root_dir=Path(config['root_dir']),
+            train_test_split = Path(config['train_test_split']),
+            raw_file_path = Path(config['raw_file_path']),
+            local_data_file=Path(config['local_data_file']),
+            train_path=Path(config['train_path']),
+            test_path=Path(config['test_path'])
+        )
+
+        return data_transformation_config

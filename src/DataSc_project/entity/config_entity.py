@@ -7,16 +7,15 @@ class DataIngestionConfig:
     root_dir: Path
     local_data_file:Path
     
-@dataclass(frozen=True)
-class DataValidationConfig:
-    root_dir: Path
-    STATUS_FILE: str
-    
 
 @dataclass(frozen=True)
 class DataTransformationConfig:
     root_dir: Path
-    data_path: Path
+    train_test_split: Path
+    raw_file_path: Path
+    local_data_file: Path
+    train_path: Path
+    test_path: Path
 
 @dataclass(frozen=True)
 class ModelTrainerConfig:

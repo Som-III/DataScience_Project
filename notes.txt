@@ -11,3 +11,6 @@ now in data_ingestion
  once dataclass exported things change completly in self 
  as in configuration.py type of config ---> (variable) config: Dict[str, Any]
  but in ingestion type of config -----> (variable) config: DataIngestionConfig due to self being-----> (parameter) self: Self@DataIngestion
+
+
+Data ingestion done 

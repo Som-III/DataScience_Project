@@ -4,11 +4,14 @@ data_ingestion:
   root_dir: artifacts/data_ingestion  
   local_data_file: artifacts/data_ingestion/raw.csv
 
-data_validation:
-  root_dir: artifacts/data_validation
 
 data_transformation:
   root_dir: artifacts/data_transformation
+  train_test_split: artifacts/train_test_split
+  raw_file_path: artifacts/data_transformation/raw.csv
+  local_data_file: artifacts/data_transformation/insurance.csv
+  train_path: artifacts/train_test_split/train.csv
+  test_path: artifacts/train_test_split/test.csv
 
 model_trainer:
   root_dir: artifacts/model_trainer
