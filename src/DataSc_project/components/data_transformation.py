@@ -13,9 +13,9 @@ class DataTransformation:
     def __init__(self, config: DataTransformationConfig):
         self.config = config
         self.HAC = ['HeartIssues', 'AnyTransplants', 'CancerHistory']
-    def data_preprocess(self,filepath:Path):
+    def data_preprocess(self,raw_filepath:Path):
         try:
-            df = pd.read_csv(f"../../../{str(filepath)}")
+            df = pd.read_csv(raw_filepath)
             logger.info("raw file is being transformed")
             df = df.drop(columns=['CustomerID', 'Name'])
             df['DATE'] = df['DATE'].apply(lambda x: int(x.split('/')[2]))
@@ -39,7 +39,7 @@ class DataTransformation:
         
     def train_test_split(self, filepath:Path):
         try:
-            df = pd.read_csv(f"../../../{str(filepath)}")
+            df = pd.read_csv(filepath)
             train_set,test_set = train_test_split(df,test_size=0.25,random_state=42)
             if not (os.path.exists(Path(self.config.train_path)) and os.path.exists(Path(self.config.test_path))):                                                                              
                 train_set.to_csv(Path(self.config.train_path),index=False,header=True)
