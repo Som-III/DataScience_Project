@@ -17,11 +17,13 @@ class DataTransformationConfig:
     train_path: Path
     test_path: Path
 
+    
 @dataclass(frozen=True)
 class ModelTrainerConfig:
     root_dir: Path
     train_data_path: Path
     test_data_path: Path
+    target_column: str
 
 @dataclass(frozen=True)
 class ModelEvaluationConfig:

@@ -2,8 +2,8 @@ from src.DataSc_project.constants import *
 from src.DataSc_project.utils.helpers import read_yaml, create_directories
 from src.DataSc_project.entity.config_entity import (DataIngestionConfig,
                                             
-                                            DataTransformationConfig
-                                     
+                                            DataTransformationConfig,
+                                            ModelTrainerConfig
                                             )
 from typing import Dict, Any
 
@@ -12,10 +12,10 @@ class ConfigurationManager:
     def __init__(
         self,
         config_filepath = CONFIG_FILE_PATH,
-        params_filepath = PARAMS_FILE_PATH):
+        schema_filepath = SCHEMA_FILE_PATH):
 
         self.config = read_yaml(config_filepath)
-        self.params = read_yaml(params_filepath)
+        self.schema = read_yaml(schema_filepath)
         
         create_directories([Path(self.config['artifacts_root'])])
 
@@ -51,3 +51,19 @@ class ConfigurationManager:
         )
 
         return data_transformation_config
+    
+    
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config: Dict[str,Any] = self.config['model_trainer']
+        schema: Dict[str,Any] = self.schema['TARGET']
+
+        create_directories([Path(config["root_dir"])])
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=Path(config['root_dir']),
+            train_data_path = Path(config['train_data_path']),
+            test_data_path = Path(config['test_data_path']),
+            target_column = Path(schema['target_column'])
+        )
+
+        return model_trainer_config

@@ -1,0 +1,17 @@
+COLUMNS:
+  DATE                    : int64  
+  BMI                     : float64
+  HBA1C                   : float64
+  HeartIssues             : int64  
+  AnyTransplants          : int64  
+  CancerHistory           : int64  
+  NumberOfMajorSurgeries  : int64  
+  Smoker                  : int64  
+  Children                : int64  
+  HospitalTier            : int64  
+  CityTier                : int64  
+  StateID                 : int64  
+
+TARGET:
+  Column: Charges                 
+  Type: float64

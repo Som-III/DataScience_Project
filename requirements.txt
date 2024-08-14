@@ -14,4 +14,5 @@ python-dotenv
 python-box
 SQLAlchemy
 pymysql
+xgboost
 #-e .
