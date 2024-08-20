@@ -3,7 +3,7 @@ from src.DataSc_project.utils.helpers import read_yaml, create_directories
 from src.DataSc_project.entity.config_entity import (DataIngestionConfig,
                                             
                                             DataTransformationConfig,
-                                            ModelTrainerConfig
+                                            ModelTrainerConfig,ModelEvaluationConfig
                                             )
 from typing import Dict, Any
 
@@ -63,7 +63,26 @@ class ConfigurationManager:
             root_dir=Path(config['root_dir']),
             train_data_path = Path(config['train_data_path']),
             test_data_path = Path(config['test_data_path']),
-            target_column = Path(schema['target_column'])
+            target_column = str(schema['Column'])
         )
 
         return model_trainer_config
+    
+    def  get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config: Dict[str,Any] = self.config['model_evaluation']
+        schema: Dict[str,Any] = self.schema['TARGET']
+        model_path:Dict[str,Path] = {str(k): Path(v) for k, v in config['model_paths'].items()}
+
+        create_directories([Path(config["root_dir"])])
+
+        model_eval_config = ModelEvaluationConfig(
+            root_dir=Path(config['root_dir']),
+            test_data_path = Path(config['test_data_path']),
+            metric_file_name = Path(config['metric_file_name']),
+            mlflow_uri = "https://dagshub.com/Som-III/DataScience_Project.mlflow",
+            target_column = str(schema['Column']),
+            model_paths = model_path,
+
+        )
+
+        return model_eval_config

@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Dict
 
 
 @dataclass(frozen=True)
@@ -29,6 +30,8 @@ class ModelTrainerConfig:
 class ModelEvaluationConfig:
     root_dir: Path
     test_data_path: Path
-    model_path: Path
-    all_params: dict
+    metric_file_name: Path
+    mlflow_uri: str
+    target_column: str
+    model_paths: Dict[str, Path]
 

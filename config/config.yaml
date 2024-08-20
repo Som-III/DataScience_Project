@@ -20,3 +20,15 @@ model_trainer:
 
 model_evaluation:
   root_dir: artifacts/model_evaluation  
+  test_data_path: artifacts/train_test_split/test.csv
+  metric_file_name: artifacts/model_evaluation/metrics.json
+  model_paths:
+    LinearRegression: artifacts/model_trainer/linear_regression_model.joblib
+    DecisionTree: artifacts/model_trainer/decision_tree_model.joblib
+    GradientBoosting: artifacts/model_trainer/gradient_boosting_model.joblib
+    XGBoost: artifacts/model_trainer/xgboost_model.joblib
+    Ridge: artifacts/model_trainer/ridge_model.joblib
+    Lasso: artifacts/model_trainer/lasso_model.joblib
+    ElasticNet: artifacts/model_trainer/elasticnet_model.joblib
+    
+    

@@ -15,4 +15,5 @@ python-box
 SQLAlchemy
 pymysql
 xgboost
+dagshub
 #-e .

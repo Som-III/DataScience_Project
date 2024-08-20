@@ -1,8 +1,8 @@
 import sys
-from src.DataSc_project.logger import logger
-from src.DataSc_project.exceptions import (CustomException)
-from src.DataSc_project.components.model_evaluation import  (ModelEvaluation)
-from src.DataSc_project.config import (ConfigurationManager)
+from DataSc_project.logger import logger
+from DataSc_project.exceptions import (CustomException)
+from DataSc_project.components.model_evaluation import  (ModelEvaluation)
+from DataSc_project.config import (ConfigurationManager)
 
 STAGE_NAME = "Model Evaluation stage"
 
@@ -32,3 +32,4 @@ if __name__ == '__main__':
     except Exception as e:
         logger.exception(e)
         raise CustomException(e,sys)
+

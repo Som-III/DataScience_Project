@@ -64,6 +64,25 @@ def save_json(path: Path, data: dict):
         json.dump(data, f, indent=4)
 
     logger.info(f"json file saved at: {path}")
+    
+    
+    
+def update_metrics(path: Path, model_name: str, metrics: dict):
+    """Update the JSON file with new metrics for a specific model.
+
+    Args:
+        path (Path): Path to JSON file.
+        model_name (str): Name of the model.
+        metrics (dict): Dictionary containing the model metrics (e.g., rmse, mae, r2).
+    """
+    if path.exists():
+        with open(path, "r") as f:
+            data = json.load(f)
+    else:
+        data = {}
+
+    data[model_name] = metrics
+    save_json(path, data)
 
 
 

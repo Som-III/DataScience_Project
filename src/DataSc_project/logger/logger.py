@@ -5,7 +5,7 @@ import logging
 logging_str = "[%(asctime)s: %(levelname)s: %(module)s: %(message)s]"
 
 log_path = "logs"
-log_filepath = os.path.join(log_path,"running_logs_transformation.log")
+log_filepath = os.path.join(log_path,"running_logs_evaluation2.log")
 os.makedirs(log_path, exist_ok=True)
 
 

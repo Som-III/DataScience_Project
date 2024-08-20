@@ -1,10 +1,8 @@
-import os
-from pathlib import Path
 import sys
-from src.DataSc_project.logger import logger
-from src.DataSc_project.exceptions import (CustomException)
-from src.DataSc_project.components.model_trainer import (ModelTrainer)
-from src.DataSc_project.config import (ConfigurationManager)
+from DataSc_project.logger import logger
+from DataSc_project.exceptions import (CustomException)
+from DataSc_project.components.model_trainer import (ModelTrainer)
+from DataSc_project.config import (ConfigurationManager)
 
 
 STAGE_NAME = "Model Training stage"

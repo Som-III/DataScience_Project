@@ -17,10 +17,13 @@ class ModelTrainer:
         self.config = config
         self.train_data = pd.read_csv(self.config.train_data_path)
         self.test_data = pd.read_csv(self.config.test_data_path)
-        self.X_train = self.train_data.drop([self.config.target_column], axis=1)
-        self.X_test = self.test_data.drop([self.config.target_column], axis=1)
-        self.y_train = self.train_data[[self.config.target_column]]
-        self.y_test = self.test_data[[self.config.target_column]]
+        print("Train data columns:", self.train_data.columns)
+        print("Test data columns:", self.test_data.columns)
+        print("Test data columns:", self.config.target_column)
+        self.X_train = self.train_data.drop([str(self.config.target_column)], axis=1)
+        self.X_test = self.test_data.drop([str(self.config.target_column)], axis=1)
+        self.y_train = self.train_data[[str(self.config.target_column)]]
+        self.y_test = self.test_data[[str(self.config.target_column)]]
         
     def train_linear_regression(self):
         try:
