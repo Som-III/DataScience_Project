@@ -30,5 +30,8 @@ model_evaluation:
     Ridge: artifacts/model_trainer/ridge_model.joblib
     Lasso: artifacts/model_trainer/lasso_model.joblib
     ElasticNet: artifacts/model_trainer/elasticnet_model.joblib
+
+model_prediction:
+  root_dir: artifacts/model_prediction
     
     

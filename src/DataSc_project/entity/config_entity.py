@@ -34,4 +34,10 @@ class ModelEvaluationConfig:
     mlflow_uri: str
     target_column: str
     model_paths: Dict[str, Path]
+    
+@dataclass(frozen=True)
+class ModelPredictionConfig:
+    root_dir: Path
+    mlflow_uri: str
+
 

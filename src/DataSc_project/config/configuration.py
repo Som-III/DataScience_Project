@@ -3,7 +3,7 @@ from src.DataSc_project.utils.helpers import read_yaml, create_directories
 from src.DataSc_project.entity.config_entity import (DataIngestionConfig,
                                             
                                             DataTransformationConfig,
-                                            ModelTrainerConfig,ModelEvaluationConfig
+                                            ModelTrainerConfig,ModelEvaluationConfig,ModelPredictionConfig
                                             )
 from typing import Dict, Any
 
@@ -86,3 +86,15 @@ class ConfigurationManager:
         )
 
         return model_eval_config
+    
+    def get_model_prediction_config(self) -> ModelPredictionConfig:
+        config: Dict[str,Any] = self.config['model_prediction']
+
+        create_directories([Path(config["root_dir"])])
+
+        model_prediction_config = ModelPredictionConfig(
+            root_dir=Path(config['root_dir']),
+            mlflow_uri = "https://dagshub.com/Som-III/DataScience_Project.mlflow"
+        )
+
+        return model_prediction_config
