@@ -1,9 +1,4 @@
-### Data Science project
-Here's a sample GitHub README for your project:
-
----
-
-# Insurance Prediction API
+### End to End Insurance prediction Api: A fully managed data science use case
 
 ## Overview
 
