@@ -80,12 +80,11 @@ There are 2 ways for installation and running in device is to clone the repositi
    ```bash
    python app.py
    ```
-## Note 
-  The api won't run unless you provide api key with key of `request-key`
+Note  - The api won't run unless you provide api key with key of `request-key`
 
 4. **Testing with Postman**:
    - Import the Postman collection from the `postman/` directory.
-   - Send a GET request to `http://127.0.0.1:5000/predict` with the API
+   - Send a POST request to `http://127.0.0.1:5000/predict` with the API
    - add api key `request-key` value pair in the header section for authentication(api key value is singular and not present in readme)
    -sample body format
    ```json
